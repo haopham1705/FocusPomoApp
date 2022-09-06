@@ -1,6 +1,5 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:interval_time_picker';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'FocusPomo App',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -24,9 +23,9 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.purple,
       ),
-      home: const MyHomePage(title: 'Flutter Counter App'),
+      home: const MyHomePage(title: 'FocusPomo App'),
     );
   }
 }
@@ -63,6 +62,12 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _counter--;
     });
+  }
+
+  void _intervalCounter(){
+      setState(() {
+        _counter = 100;
+      });
   }
 
   void _resetCounter() {
@@ -122,7 +127,17 @@ class _MyHomePageState extends State<MyHomePage> {
                   backgroundColor: MaterialStateProperty.all<Color>(Colors.lightGreen)
                 ),
                 onPressed: _resetCounter,
-                child: Text('Auto Counter')),
+                child: Text('Auto Counter')
+            ),
+            TextButton(
+                style: ButtonStyle(
+                    foregroundColor:
+                    MaterialStateProperty.all<Color>(Colors.white),
+                    backgroundColor: MaterialStateProperty.all<Color>(Colors.deepOrange)
+                ),
+                onPressed: _intervalCounter,
+                child: Text('Auto Counter')
+            ),
           ],
         ),
       ),
